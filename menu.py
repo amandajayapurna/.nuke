@@ -1,6 +1,6 @@
 #  ----------------------------------------------------------------
 #   menu.py
-#   Version: 1.0.2
+#   Version: 1.0.3
 #   Last Updated: August 12, 2022
 #   Author: Amanda Jayapurna
 #  ----------------------------------------------------------------
@@ -33,15 +33,18 @@ else:
 #  KNOB DEFAULTS :::::::::::::::::::::::::::::::::::::::::::::::::
 #  ---------------------------------------------------------------
 
-nuke.knobDefault('Tracker4.shutteroffset', "centered")
-nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
-nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
-
 nuke.knobDefault('MotionBlur2D.shutteroffset', "centered")
 nuke.knobDefault('MotionBlur3D.shutteroffset', "centered")
 nuke.knobDefault('Transform.shutteroffset', "centered")
 nuke.knobDefault('TransformMasked.shutteroffset', "centered")
+nuke.knobDefault('TimeBlur.shutteroffset', "centered")
+nuke.knobDefault('CornerPin2D.shutteroffset', "centered")
+nuke.knobDefault('ScanlineRender.shutteroffset', "centered")
+nuke.knobDefault('Card3D.shutteroffset', "centered")
+nuke.knobDefault('Tracker4.shutteroffset', "centered")
 
+nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value reference_frame]")
+nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
 nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass='FrameHold2')
 
 
@@ -66,3 +69,18 @@ nuke.menu('Nodes').addCommand("Transform/Tracker", "nuke.createNode('Tracker4')"
 #C:\Program Files\Nuke11.3v5\plugins\icons to find built in icons!
 
 
+#  MERGE NODE SHORTCUTS ------------------------------------------
+mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
+mergeMenu.addCommand('Stencil', 'nuke.createNode("Merge2", "operation stencil bbox B")', "alt+o", icon="Out.png", shortcutContext=2)
+mergeMenu.addCommand('Mask', 'nuke.createNode("Merge2", "operation mask bbox A")', "alt+i", icon="In.png", shortcutContext=2)
+mergeMenu.addCommand('Plus', 'nuke.createNode("Merge2", "operation plus")', "alt+]", icon="Add.png", shortcutContext=2)
+mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt+[", icon="From.png", shortcutContext=2)
+
+
+# week 3 challenge if/else statements
+x = 15
+y = 6
+if x + y == 20:
+	print "x + y = 20! :)"
+else:
+	print "x + y = " + str(x+y) + ", not 20"
