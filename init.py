@@ -1,7 +1,7 @@
 #  ----------------------------------------------------------------
 #   init.py
-#   Version: 1.0.0
-#   Last Updated: August 11, 2022
+#   Version: 1.0.1
+#   Last Updated: August 12, 2022
 #   Author: Amanda Jayapurna
 #  ----------------------------------------------------------------
 
@@ -9,6 +9,4 @@
 
 nuke.pluginAddPath('./gizmos')
 nuke.pluginAddPath('./python')
-
-
-
+nuke.pluginAddPath('./icons')
