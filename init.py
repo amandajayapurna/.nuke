@@ -1,7 +1,7 @@
 #  ----------------------------------------------------------------
 #   init.py
-#   Version: 1.0.1
-#   Last Updated: August 12, 2022
+#   Version: 1.0.3
+#   Last Updated: August 14, 2022
 #   Author: Amanda Jayapurna
 #  ----------------------------------------------------------------
 
@@ -9,4 +9,5 @@
 
 nuke.pluginAddPath('./gizmos')
 nuke.pluginAddPath('./python')
+nuke.pluginAddPath('./python/shuffleShortcuts')
 nuke.pluginAddPath('./icons')
