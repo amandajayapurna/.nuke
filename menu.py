@@ -1,7 +1,7 @@
 #  ----------------------------------------------------------------
 #   menu.py
-#   Version: 1.0.3
-#   Last Updated: August 12, 2022
+#   Version: 1.0.4
+#   Last Updated: August 15, 2022
 #   Author: Amanda Jayapurna
 #  ----------------------------------------------------------------
 
@@ -47,6 +47,11 @@ nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef Frame: [value
 nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
 nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass='FrameHold2')
 
+#  ---------------------------------------------------------------
+#  PYTHON :::::::::::::::::::::::::::::::::::::::::::::::::
+#  ---------------------------------------------------------------
+
+import shuffleShortcuts
 
 #  ---------------------------------------------------------------
 #  CUSTOM MENUS ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -60,6 +65,10 @@ utilitiesMenu.addCommand('Autocrop', 'nukescripts.autocrop()')
 myGizmosMenu = nuke.menu('Nodes').addMenu('myGizmos', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('Exponential Glow', 'nuke.createNode("NST_Glow_Exponential.gizmo")', icon="myGizmos_icon.png")
 myGizmosMenu.addCommand('Vignette', 'nuke.createNode("NST_apVignette")', icon="myGizmos_icon.png")
+
+#add custom shuffle node to Channels menu
+#channelsMenu = nuke.menu('Nodes').findItem("Channels")
+#channelsMenu.addCommand('Custom Shuffle', 'nuke.createNode("Shuffle")', "alt+s", icon="Shuffle.png", shortcutContext=2)
 
 #  ---------------------------------------------------------------
 #  KEYBOARD SHORTCUTS ::::::::::::::::::::::::::::::::::::::::::::
@@ -78,9 +87,10 @@ mergeMenu.addCommand('From', 'nuke.createNode("Merge2", "operation from")', "alt
 
 
 # week 3 challenge if/else statements
-x = 15
-y = 6
-if x + y == 20:
-	print "x + y = 20! :)"
-else:
-	print "x + y = " + str(x+y) + ", not 20"
+#x = 15
+#y = 6
+#if x + y == 20:
+#	print "x + y = 20! :)"
+#else:
+#	print "x + y = " + str(x+y) + ", not 20"
+
